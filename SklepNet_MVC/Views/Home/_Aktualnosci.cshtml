@@ -1,0 +1,22 @@
+﻿@model List<SklepNet_MVC.Models.CMS.Aktualnosci>
+
+<div>
+    <h2>
+        Aktualności
+    </h2>
+    @foreach (var aktualnosc in Model)
+    {
+        <div id="Aktualnosci" style="border: 1px solid silver">
+            <div id="TytulAktualnosci">
+                Tytół: @aktualnosc.Tytul
+            </div>
+            <div id="trescAktualnosci">
+                Treść: <br/>
+                @aktualnosc.Tresc
+            </div>
+        </div>
+
+    }
+
+
+</div>

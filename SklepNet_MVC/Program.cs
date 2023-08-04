@@ -1,10 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using SklepNet_MVC.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
 
+
+//builder.Services.AddDbContext<SklepNetDBContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("SklepNetMVC_ConnectionString")));
+builder.Services.AddDbContext<SklepNetDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("SklepNetMVC_ConnectionString")));
+
+
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
