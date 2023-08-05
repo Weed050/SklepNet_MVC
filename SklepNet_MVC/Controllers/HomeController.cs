@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SklepNet_MVC.Data;
 using SklepNet_MVC.Models;
 using SklepNet_MVC.Models.CMS;
@@ -8,18 +9,13 @@ namespace SklepNet_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private SklepNetDBContext db = new SklepNetDBContext("SklepNetMVC_ConnectionString");
-        public ActionResult _Aktualnosci()
-        {
-            List<Aktualnosci> listaAktualnosci = db.Aktualnosci.OrderBy(x => x.Pozycja).ToList();
-            return PartialView(listaAktualnosci);
-        }
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
+        //private SklepNetDBContext db = new SklepNetDBContext(DbContextOptions);
+        //public ActionResult _Aktualnosci()
         //{
-        //    _logger = logger;
+        //    List<Aktualnosci> listaAktualnosci = db.Aktualnosci.OrderBy(x => x.Pozycja).ToList();
+        //    return PartialView(listaAktualnosci);
         //}
+
         public IActionResult Index()
         {
             return View();

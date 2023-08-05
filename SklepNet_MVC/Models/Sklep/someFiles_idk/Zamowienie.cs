@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SklepNet_MVC.Models.Sklep
+namespace SklepNet_MVC.Models.Sklep.someFiles_idk
 {
     public class Zamowienie
     {

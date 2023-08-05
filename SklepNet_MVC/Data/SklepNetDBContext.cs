@@ -11,7 +11,7 @@ namespace SklepNet_MVC.Data
             
         }
         public DbSet<Aktualnosci> Aktualnosci { get; set; }
-        public DbSet<Ogloszenie> Ogloszenia { get; set; }
+        //public DbSet<Ogloszenia> Ogloszenia { get; set; }
         public DbSet<Towar> Towar { get; set; }
         public DbSet<TowarZdjecie> TowarZdjecie { get; set; }
         public DbSet<StanyMagazynowe> StanyMagazynowe { get; set; }
