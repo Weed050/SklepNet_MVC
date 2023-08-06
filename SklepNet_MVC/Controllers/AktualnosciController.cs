@@ -13,7 +13,7 @@ namespace SklepNet_MVC.Controllers
         public IActionResult Index()
         {
             var data = _context.Aktualnosci.ToList();
-            return View();
+            return View("_Aktualnosci");
         }
     }
 }

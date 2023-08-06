@@ -6,13 +6,24 @@
     </h2>
     @foreach (var aktualnosc in Model)
     {
-        <div id="Aktualnosci" style="border: 1px solid silver">
-            <div id="TytulAktualnosci">
-                Tytół: @aktualnosc.Tytul
-            </div>
-            <div id="trescAktualnosci">
-                Treść: <br/>
-                @aktualnosc.Tresc
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#colapse-@aktualnosc.IdAktualnosc">
+                            @aktualnosc.Tytul
+                        </a>
+
+                    </h4>
+                </div>
+
+                <div id="collapse-@aktualnosc.IdAktualnosc" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        @aktualnosc.Tresc
+                    </div>
+
+                </div>
             </div>
         </div>
 
