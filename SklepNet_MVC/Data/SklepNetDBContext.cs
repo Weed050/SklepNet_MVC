@@ -10,10 +10,10 @@ namespace SklepNet_MVC.Data
         //{
 
         //}
-        public SklepNetDBContext(DbContextOptions<SklepNetDBContext> options)
+        public SklepNetDBContext(DbContextOptions options)
         : base(options)
         {
-            
+
         }
         public DbSet<Aktualnosci> Aktualnosci { get; set; }
         //public DbSet<Ogloszenia> Ogloszenia { get; set; }
