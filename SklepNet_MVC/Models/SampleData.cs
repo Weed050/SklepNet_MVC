@@ -1,7 +1,7 @@
-﻿using SklepNet_MVC.Models.Sklep;
+﻿using SklepNet_MVC.Data;
+using SklepNet_MVC.Models.Sklep;
 using SklepNet_MVC.Models.CMS;
 using Microsoft.EntityFrameworkCore;
-using SklepNet_MVC.Data;
 
 namespace SklepNet_MVC.Models
 {
@@ -41,8 +41,6 @@ namespace SklepNet_MVC.Models
 
                     foreach (var a in aktualnosci)
                         context.Aktualnosci.AddRange(a);
-                    context.SaveChanges();
-
                 }
 
                 if (!context.Towar.Any())

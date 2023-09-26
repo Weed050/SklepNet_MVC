@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SklepNet_MVC.Data;
 using SklepNet_MVC.Models;
 using SklepNet_MVC.Models.CMS;
 using System.Diagnostics;
