@@ -6,12 +6,7 @@ namespace SklepNet_MVC.Data
 {
     public class SklepNetDBContext : DbContext
     {
-        //public SklepNetDBContext(DbContextOptions<SklepNetDBContext> options): base(options)
-        //{
-
-        //}
-        public SklepNetDBContext(DbContextOptions<SklepNetDBContext> options)
-        : base(options)
+        public SklepNetDBContext(DbContextOptions<SklepNetDBContext> options): base(options)
         {
             
         }
