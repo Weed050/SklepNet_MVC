@@ -6,8 +6,9 @@ namespace SklepNet_MVC.Models.Sklep
     {
         [Key]
         public int IdStanMagazynowy { get; set; }
-        public virtual Towar Towar { get; set; }
-        public int IdTowar { get; set; }
+        public  Towar Towar { get; set; }
+        public int TowarID{ get; set; }
+
         public int Stan { get; set; }
         public DateTime DataDodania { get; set; }
 

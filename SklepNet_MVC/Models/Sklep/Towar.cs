@@ -16,12 +16,14 @@ namespace SklepNet_MVC.Models.Sklep
 
         [DataType(DataType.Currency,ErrorMessage = "Wartość podana jest nie prawidłowa. Musi być liczbą.")]
         [Required(ErrorMessage = "Cena towaru wymagana")]
-        public decimal Cena { get; set; }
+        public double Cena { get; set; }
         [Display(Name = "VIP Towar")]
         public bool VIPtowar { get; set; }
         [Display(Name = "Towar Promocyjny")]
         public bool towarPromocyjny { get; set; }
-        public virtual ICollection<TowarZdjecie> TowarZdjecie { get; set; }
-        public virtual ICollection<StanyMagazynowe> StanyMagazynowe { get; set; }
+        //public virtual ICollection<TowarZdjecie> TowarZdjecie { get; set; }
+        //public virtual ICollection<StanyMagazynowe> StanyMagazynowe { get; set; }
+        public List<TowarZdjecie> ZdjeciaTowarow { get; set; } = new List<TowarZdjecie> { };
+        public List<StanyMagazynowe> StanyMagazynowe { get; set; } = new List<StanyMagazynowe> { };
     }
 }
