@@ -19,7 +19,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var dbContext = services.GetRequiredService<SklepNetDBContext>();
-        dbContext.Database.Migrate(); // Wykonuje migracje bazy danych, jeœli s¹ dostêpne
+        //dbContext.Database.Migrate(); // Wykonuje migracje bazy danych, jeœli s¹ dostêpne
         SampleData.Initialize(services); // Dodaj to wywo³anie inicjalizacji
     }
     catch (Exception ex)

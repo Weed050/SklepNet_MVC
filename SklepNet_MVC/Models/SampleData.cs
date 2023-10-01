@@ -11,7 +11,11 @@ namespace SklepNet_MVC.Models
         {
             using (var context = new SklepNetDBContext(serviceProvider.GetRequiredService<DbContextOptions<SklepNetDBContext>>()))
             {
-                
+                context.Database.EnsureCreated();
+                // If you miss 14 line and you don't have DB ready structure, you're fucked, because it will create empty DB and it won't fill it with data
+
+                if (!context.Aktualnosci.Any())
+                {
                     var aktualnosci = new List<Aktualnosci>
                     {
                         new Aktualnosci{Tytul = "Tytul aktualnosci 1",Tresc = "Tresc aktualnosci 1",Pozycja = 1},
@@ -23,8 +27,9 @@ namespace SklepNet_MVC.Models
                     foreach (var a in aktualnosci)
                         context.Aktualnosci.AddRange(a);
                     context.SaveChanges();
-                
-               
+                }
+                if (!context.Towar.Any())
+                {
                     var towary = new List<Towar>
                     {
                         new Towar { Nazwa = "Towar 1", Opis = "Opis towaru 1", VIPtowar = false, towarPromocyjny = true, Cena = 1 },
@@ -32,20 +37,16 @@ namespace SklepNet_MVC.Models
                        new Towar { Nazwa = "Towar 3", Opis = "Opis towaru 3", VIPtowar = false, towarPromocyjny = true, Cena = 3 },
                        new Towar { Nazwa = "Towar 4", Opis = "Opis towaru 4", VIPtowar = false, towarPromocyjny = true, Cena = 4 },
                        new Towar { Nazwa = "Towar 5", Opis = "Opis towaru 5", VIPtowar = false, towarPromocyjny = true, Cena = 5 },
-                       new Towar { Nazwa = "Towar 6", Opis = "Opis towaru 6", VIPtowar = false, towarPromocyjny = true, Cena = 6 },
-                       new Towar { Nazwa = "Towar 7", Opis = "Opis towaru 7", VIPtowar = false, towarPromocyjny = true, Cena = 7 },
-                       new Towar { Nazwa = "Towar 8", Opis = "Opis towaru 8", VIPtowar = false, towarPromocyjny = true, Cena = 8 },
-                       new Towar { Nazwa = "Towar 9", Opis = "Opis towaru 9", VIPtowar = false, towarPromocyjny = true, Cena = 9 },
-                       new Towar { Nazwa = "Towar 10", Opis = "Opis towaru 10", VIPtowar = false, towarPromocyjny = true, Cena = 10 }
                     };
 
                     foreach (var t in towary)
                         context.Towar.AddRange(t);
                     context.SaveChanges();
+                }
 
-
-
-                var towarZdjecia = new List<TowarZdjecie>
+                if (!context.TowarZdjecie.Any())
+                {
+                    var towarZdjecia = new List<TowarZdjecie>
                     {
 
                      new TowarZdjecie { TowarID = 1,URL = "/Content/Zdjecia/Zdj1.jpg" },
@@ -54,31 +55,29 @@ namespace SklepNet_MVC.Models
                      new TowarZdjecie { TowarID = 4,URL = "/Content/Zdjecia/Zdj4.jpg" },
                      new TowarZdjecie { TowarID = 5,URL = "/Content/Zdjecia/Zdj5.jpg" },
                     };
-                foreach (var tZ in towarZdjecia)
-                    context.TowarZdjecie.AddRange(tZ);
-                context.SaveChanges();
+                    foreach (var tZ in towarZdjecia)
+                        context.TowarZdjecie.AddRange(tZ);
+                    context.SaveChanges();
+                }
 
 
 
-
-                var towarStany = new List<StanyMagazynowe>
+                if (!context.StanyMagazynowe.Any())
+                {
+                    var towarStany = new List<StanyMagazynowe>
                     {
                         new StanyMagazynowe {TowarID = 1,Stan = 10,DataDodania = DateTime.Now},
                         new StanyMagazynowe {TowarID = 2,Stan = 4,DataDodania = DateTime.Now},
                         new StanyMagazynowe {TowarID = 3,Stan = 7,DataDodania = DateTime.Now},
                         new StanyMagazynowe {TowarID = 4,Stan = 10,DataDodania = DateTime.Now},
                         new StanyMagazynowe {TowarID = 5,Stan = 3,DataDodania = DateTime.Now},
-                        new StanyMagazynowe {TowarID = 6,Stan = 7,DataDodania = DateTime.Now},
-                        new StanyMagazynowe {TowarID = 7,Stan = 19,DataDodania = DateTime.Now},
-                        new StanyMagazynowe {TowarID = 8,Stan = 19,DataDodania = DateTime.Now},
-                        new StanyMagazynowe {TowarID = 9,Stan = 12,DataDodania = DateTime.Now},
-                        new StanyMagazynowe {TowarID = 10,Stan = 16,DataDodania = DateTime.Now},
+
                     };
 
                     foreach (var sM in towarStany)
                         context.StanyMagazynowe.AddRange(sM);
                     context.SaveChanges();
-                
+                }
             }
         }
     }
